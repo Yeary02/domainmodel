@@ -116,7 +116,10 @@ class MoneyTests: XCTestCase {
 
         ("testAddUSDtoUSD", testAddUSDtoUSD),
         ("testAddUSDtoGBP", testAddUSDtoGBP),
-        ("testIllegalCurrency", testIllegalCurrency)
+        
+        ("testIllegalCurrency", testIllegalCurrency),
+        ("testSubtractUSDtoUSD", testSubtractUSDtoUSD),
+        ("testSubtractUSDtoGBP", testSubtractUSDtoGBP)
     ]
 }
 
