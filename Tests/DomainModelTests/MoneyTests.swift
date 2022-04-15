@@ -80,6 +80,19 @@ class MoneyTests: XCTestCase {
     XCTAssert(total.amount == 10)
     XCTAssert(total.currency == "GBP")
   }
+    
+//    func testMoneyTypeError() {
+//        let moneytype = MoneyType()
+//        var thrownError: Error?
+//
+//        // Capture the thrown error using a closure
+//        XCTAssertThrowsError(try moneytype.mon(name: "RMB")) {
+//            thrownError = $0
+//        }
+//
+//        // Verify that our error is equal to what we expect
+//        XCTAssertEqual(thrownError as? moneytype.Error)
+//    }
 
     static var allTests = [
         ("testCanICreateMoney", testCanICreateMoney),
