@@ -18,6 +18,11 @@ public struct Money {
     }
     
     func convert(_ expectCurrency: String) -> Money {
+        let inventory = ["USD", "GBP", "EUR", "CAN"]
+        guard inventory.contains(expectCurrency) else {
+            return Money(amount: -1, currency: "Unknown Currency")
+        }
+        
         var dollar: Double
         if currency == "CAN" {
             dollar = Double(amount) / 1.25
@@ -50,20 +55,16 @@ public struct Money {
         
         return Money(amount: newAmount, currency: money.currency)
     }
-}
-
-class MoneyType {
-    var inventory = ["USD", "GBP", "EUR", "CAN"]
     
-    enum MoneyTypeError: Error {
-        case InvalidCurrency
-    }
-    
-    func mon(name: String) throws -> String {
-        guard inventory.contains(name) else {
-            throw MoneyTypeError.InvalidCurrency
+    func subtract(_ money: Money) -> Money {
+        let newAmount: Int
+        if self.currency == money.currency {
+            newAmount = self.amount - money.amount
+        } else {
+            newAmount = money.amount - convert(money.currency).amount
         }
-        return name
+        
+        return Money(amount: newAmount, currency: money.currency)
     }
 }
 
